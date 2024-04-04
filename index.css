@@ -1,3 +1,7 @@
+file{
+	display: none;
+}
+
 .bg {
 	background-color: #181616;
 }
@@ -7,7 +11,7 @@
 }
 
 
-li.rb,li.nav a.rb,.radius-border {
+li.rb,.radius-border {
 	border-style: double double double double;
 	border-color: aqua;
 	border-top-left-radius: 0.1414em;
@@ -38,12 +42,18 @@ li.nav:first-child{
 	border-left: 1px solid #bbb;
 }
 
-li.nav a{
+li.nav a,li.nav span{
 	display: inline;
     color: aqua;
     text-align: center;
     padding: 10px 16px;
     text-decoration: none;
+	cursor:alias;
+}
+
+li.nav.disabled span{
+	color: darkred;
+	cursor: not-allowed;
 }
 
 h1 { 

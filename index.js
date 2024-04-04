@@ -1,11 +1,3 @@
-const DOMGetter = () => {
-	this.$ = (str) => {
-		return document.querySelector(str)
-	}
-	return this
-}
-const dom = DOMGetter()
-
 var global_timeSetter = 0
 function timeSetter(){
 	global_timeSetter = setInterval( ()=>{
@@ -16,6 +8,4 @@ function OnLoad(){
 	timeSetter()
 }
 
-var canvas = dom.$("#canvas")
-
-window.onload = OnLoad
+fonload.add(OnLoad())
