@@ -1,0 +1,53 @@
+.bg {
+	background-color: #181616;
+}
+
+.bg-contain {
+	color: whitesmoke;
+}
+
+
+li.rb,li.nav a.rb,.radius-border {
+	border-style: double double double double;
+	border-color: aqua;
+	border-top-left-radius: 0.1414em;
+	border-top-right-radius: 0.5em;
+	border-bottom-left-radius: 0.5em;
+	border-bottom-right-radius: 0.1414em;
+}
+
+ul.nav-block {
+	position: fixed;
+	top: 0;
+    width: 100%;
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+	overflow: hidden;
+    background-color: #333;
+}
+
+li.nav{
+	display: inline;
+	float: left;
+	border-right: 1px solid #bbb;
+	border-bottom: 1px dotted #bbb;
+}
+
+li.nav:first-child{
+	border-left: 1px solid #bbb;
+}
+
+li.nav a{
+	display: inline;
+    color: aqua;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+}
+
+h1 { 
+	/* font-size: 100px;  */
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-display: red;
+}
