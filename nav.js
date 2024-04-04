@@ -7,5 +7,5 @@ fonload.add(()=>{
                 "\n<li class=\"nav\"><a href=\""+link+"\">"+str+"</a></li>"
     }
     add("https://tempforevor.github.io/","Main page")
-    add("Timer/Timer.htm","Timer")
+    add("https://tempforevor.github.io/Timer/Timer.htm","Timer")
 })
