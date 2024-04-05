@@ -13,6 +13,7 @@
     <script src="../nav.js"></script>
     <script>
         const timer_setter = ()=>{
+            dom.$("#TimeSetter").innerText = new Date().toString()
             timer = setInterval(
                 ()=>{dom.$("#TimeSetter").innerText = new Date().toString()}
                 ,1000
