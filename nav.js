@@ -11,5 +11,5 @@ fonload.add(()=>{
     add("https://tempforevor.github.io/Timer/Timer.htm","Timer")
     add("https://tempforevor.github.io/Game/GameManager.htm","Games")
     add("#about","about","Main page")
-    add("https://tempforevor.github.io/TingHuNewDistrictMiddleSchool2025Class9\private.htm","Private2025Class9QQ")
+    add("https://tempforevor.github.io/TingHuNewDistrictMiddleSchool2025Class9/private.htm","Private2025Class9QQ")
 })
