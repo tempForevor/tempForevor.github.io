@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<file>GameInstance2048</file>
+<head>
+    <script src="../../manager.js"></script>
+    <script src="../../nav.js"></script>
+    <script src="2048.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../index.css" />
+    <style>
+        .block{
+            background-color: white;
+            color:black;
+            size: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 30px;
+            border-top-right-radius: 0.1414em;
+            border-bottom-left-radius: 0.1414em;
+            text-decoration: double;
+        }
+    </style>
+    <title>2048</title>
+</head>
+<body class="bg">
+    <div class="bg-contain">
+        <div id="nav-block">
+            <div class="title radius-border">
+            </div>
+            <ul class="nav-block">
+            </ul>
+        </div>
+        <div class="content radius-border">
+            <a name="2048">
+                <strong style="font-size:30px;display:block">
+                    2048
+                </strong>
+                <br>
+                <button type="reset" id="reset" onclick="generate();clearTable();generateTable()">reset</button>
+                <br>
+                <div class="radius-border">   
+                    <table id="2048block" class="2048Block nobr">
+                    </table>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>

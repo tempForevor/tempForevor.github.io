@@ -2,6 +2,14 @@ file{
 	display: none;
 }
 
+.withbr {
+	display: block;
+}
+
+.nobr {
+	display: inline;
+}
+
 .bg {
 	background-color: #181616;
 }
