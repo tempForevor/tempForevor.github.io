@@ -11,17 +11,18 @@ file{
 }
 
 .bg {
-	background-color: #181616;
+	background-color: #efefef;
 }
 
 .bg-contain {
-	color: whitesmoke;
+	color: #2f2f2f;
 }
 
 
 li.rb,.radius-border {
 	border-style: double double double double;
 	border-color: aqua;
+	background-color: antiquewhite;
 	border-top-left-radius: 0.1414em;
 	border-top-right-radius: 0.5em;
 	border-bottom-left-radius: 0.5em;
