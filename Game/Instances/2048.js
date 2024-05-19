@@ -28,7 +28,7 @@ function generateTable(){
 function addTable(){
     var generated = 0
     if(max==2){
-        generated = muilt?2:1
+        generated = 2
     }
     else{
         generated = Math.round(Math.random()*max)
@@ -46,12 +46,48 @@ function addTable(){
     table[x][y]=generated
 }
 
-function moveUp(){
-    for (let i = 0; i < td; i++) {
-        for (let j = 1; j < tr; j++) {
-            
+function generateSpaceTable(){
+    var ttable = []
+    for (let i = 0; i < tr; i++) {
+        ttable[i] = []
+        for (let j = 0; j < td; j++) {
+            ttable[i][j] = 0
         }
     }
+    return ttable
+}
+
+function moveUp(){
+    var newtable = generateSpaceTable()
+    var limitx = 0
+    for (let i = 0; i < td; i++) {
+        limitx=0
+        for (let j = 1; j < tr; j++) {            
+            console.log([i,j,table[j][i],table[j][limitx]])
+            if(table[j][i]!=0&&(table[limitx][i]==table[j][i])){
+                table[limitx][i]=table[limitx][i]*table[j][i]
+                table[j][i]=0
+                newtable[limitx][i]=1
+                let k;
+                for(k=limitx;k<tr;k++){
+                    if(newtable[k][i]==0)break;
+                }
+                limitx=k;
+            }
+            else if(table[j][i]!=0){
+                let k;
+                for(k=limitx;k<i;k++){
+                    if(table[k][i]&&newtable[k][i]==0)break;
+                }
+                limitx=k;
+                table[limitx][i]=table[j][i]
+                table[j][i]=0
+                newtable[limitx][i]=1
+            }
+            console.log(table)
+        }
+    }
+    console.log("next")
 }
 
 fonload.add(
@@ -64,8 +100,8 @@ fonload.add(
 )
 onkeydown = (ev) => {
     if(ev.key=="w"){
-        addTable()
         moveUp()
+        addTable()
     }
     clearTable()
     generateTable()
