@@ -16,17 +16,17 @@
 }
 .appear3{
     opacity: 0;
-    animation: appear 1s ease 3s 1 normal forwards;
+    animation: appear 1s ease 13s 1 normal forwards;
 }
 .appear4{
     opacity: 0;
-    animation: appear 1s ease 4s 1 normal forwards;
+    animation: appear 1s ease 14s 1 normal forwards;
 }
 .appear5{
     opacity: 0;
-    animation: appear 1s ease 5s 1 normal forwards;
+    animation: appear 1s ease 15s 1 normal forwards;
 }
 .appear6{
     opacity: 0;
-    animation: appear 1s ease 6s 1 normal forwards;
+    animation: appear 1s ease 16s 1 normal forwards;
 }

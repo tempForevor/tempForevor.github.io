@@ -11,8 +11,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-  <link href="01.css" rel="stylesheet">
+  <!-- <link href="01.css" rel="stylesheet"> -->
 
+  <script src="text.js"></script>
   <script>
     var date = () => (
       new Date()
@@ -57,14 +58,14 @@
           <div class="appear1">
             [Info]T0100201: System Data Uploaded.
           </div>
-          <div class="appear2">[Info]T0100202: Data Rand-generating Completed.</div>
+          <div class="appear2">[Info]T0100202: Data Rand-generating Completed.Continue the task.Please wait for another 11 second</div>
           <div class="appear3">[Info]T0101530: Object Alloced Successfully.</div>
           <div class="appear4">[Info]T0101531: Start Generating Data.</div>
           <div class="appear5">[Info]T<div class="appear2" style="display:inline" id="NOW_TIME">0101531</div>: ......</div>
         </samp>
       </p>
     </div>
-    <a class="text-center strong appear6" href="#custom-header">↓↓↓↓↓</a>
+    <a class="text-center strong appear6" href="#custom-header">↓↓↓↓↓Contents↓↓↓↓↓</a>
     <pre>
 
 
@@ -95,24 +96,61 @@
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">祝福语</button>
         </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="texts-tab" data-bs-toggle="tab" data-bs-target="#texts" type="button" role="tab" aria-controls="texts" aria-selected="false">[WIP]留言</button>
+        </li>
       </ul>
       
       <!-- Tab panes -->
       <div class="tab-content">
         <div class="tab-pane active" id="main-page" role="tabpanel" aria-labelledby="main-page-tab">
-          <strong>
-          </strong>
+          (未来可能会持续更新)
+          <div class="card border-primary bg-light text-secondary">
+            <div class="card-body">
+              <h4 class="card-title"><strong style="font-size:xx-large ;">
+                &#10024老师您好&#10024
+              </strong></h4>
+              <p class="card-text">
+                <pre>
+                  <p>
+                    在1/7的人生中，能遇见您，是我们最大的荣幸。
+                    
+                    您用您孜孜不倦的工作热情，与漫漫的尊尊教诲，为我们的初中学习之路奠定了基石。
+                    您又用您那高超的教学能力和细致入微的教学内容，让我们的初中学习跃上一个新的台阶。
+                    您是伟大的，崇高的。
+                    
+                    感恩有您。
+                    
+                    2024.7.12,您的学生，&#10024马骏骋。&#10024
+                  </p>
+                </pre>
+              </p>
+            </div>
+          </div>
+
         </div>
         <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="card text-white bg-info">
             <!-- <img class="card-img-top" src="" alt="Title"> -->
             <div class="card-body">
               <h4 class="card-title"><strong>Profile</strong></h4>
-                This page is created by <strong><address style="display:inline"><a href="https://tempforevor.github.io/">tempForevor</a></address></strong>.<br>
+              <pre>
+                This page is created by <strong><address style="display:inline"><a href="https://tempforevor.github.io/">tempForevor</a></address></strong>.
                 
-                Web site is provided by <strong><address style="display:inline"><a href="https://github.com">github</a></address></strong>.<br>
+                Web site is provided by <strong><address style="display:inline"><a href="https://github.com">github</a></address></strong>.
 
-                This page uses a library which is <strong><address style="display:inline"><a href="https://getboostrap.com">Boostrap v5.2.1</a></address></strong>.<br>
+                This page uses a library which is <strong><address style="display:inline"><a href="https://getboostrap.com">Boostrap v5.2.1</a></address></strong>.
+            
+                Thank for the great support from Class 9,Grade 8(which I am in it) and its students( or my classmates).
+
+                Mostly thank for my classmate,friend 葛婧琪,who helped me think about the words to my teacher.
+
+                Most words are from the Internet.
+                The authors of them who are marked behind "--by " may not the real authors.
+                If it is neccessary to delete these words,please call me.
+
+                If it is neccessary to search for more information,please join the QQ 点击链接加入群聊【9班全体议事会议常任】：http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=bgC8bM9DKw8R1rA7K76TLLy-m7T1AVzw&authKey=MDcyGaJS%2FvQDDdFt%2FHpX9pdjVMcLDFUeUDw6%2FBlHXVztr4T%2FbYqHpnZbZnP%2BeoGU&noverify=0&group_code=755212216.
+              </pre>
             </div>
           </div>
         </div>
@@ -120,18 +158,23 @@
           <div class="card border-primary bg-secondary text-center text-justify">
             <!-- <img class="card-img-top" src="holder.js/100px180/" alt="Title"> -->
             <div class="card-body">
-              <h4 class="card-title">这是同学们的祝福</h4>
+              <h4 class="card-title">同学们的祝福(持续更新)</h4>
               <p class="card-text">
                 <div  class="text-center text-justify">
                   
-                祝愿老师能平平安安心想事成 --by tempForevor
+                <!-- 祝愿老师能平平安安心想事成 --by tempForevor
                 <br>
-                我最亲爱的老师！喜欢你认真给我们讲课的样子，喜欢你念叨我们要努力的样子，喜欢你宠我们的样子。愿你生活如诗，岁月静好，开心快乐每一天！--by
+                我最亲爱的老师！喜欢你认真给我们讲课的样子，喜欢你念叨我们要努力的样子，喜欢你宠我们的样子。愿你生活如诗，岁月静好，开心快乐每一天！--by -->
                 </div>
                 <pre>
                 </pre>
               </p>
             </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="texts" role="tabpanel" aria-labelledby="texts-tab">
+          <div id="text-standard-dialogs">
+            当前不可用
           </div>
         </div>
       </div>
