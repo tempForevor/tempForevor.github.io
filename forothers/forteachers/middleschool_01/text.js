@@ -45,3 +45,20 @@ addEventListener("load",()=>{
         document.querySelector("#messages > div > div > div").innerHTML += "<p>&#10024" + t + " --by <strong>" + a + "&#10024</strong></p><br>"
     }  
 })
+
+var req
+
+function getTexts(){
+    req = new XMLHttpRequest()
+    req.open("GET","http://tempforevor.pythonanywhere.com/all-texts/")
+    function handleEvent(e){
+        console.log(`${e.type}: ${e.loaded} bytes transferred\n`);
+    }
+    req.addEventListener("loadstart", handleEvent);
+    req.addEventListener("load", handleEvent);
+    req.addEventListener("loadend", handleEvent);
+    req.addEventListener("progress", handleEvent);
+    req.addEventListener("error", handleEvent);
+    req.addEventListener("abort", handleEvent);
+}
+addEventListener("load",getTexts)
