@@ -83,7 +83,3 @@ addEventListener("click",()=>{
     opp_animation()
     
 })
-
-var flush_internal = setInterval(()=>{
-    document.querySelector("#all-texts").contentWindow.location.reload()
-},1000*25)
