@@ -62,3 +62,28 @@ function getTexts(){
     req.addEventListener("abort", handleEvent);
 }
 addEventListener("load",getTexts)
+
+function setAnimation(max_animation_cnt,class_selecter,action){
+    var cnt = 0
+    function animation_cancel(){
+        document.querySelectorAll("."+class_selecter+cnt.toString()).forEach((v,i,l)=>{v.getAnimations().forEach((ani,index,arr)=>{
+            ani.cancel()
+        });action(v)})
+        
+        //document.querySelector("#"+id_selecter+cnt.toString()).style = style
+        cnt+=1
+        if(cnt>max_animation_cnt)cnt=0
+    }
+    return animation_cancel
+}
+var opp_animation = setAnimation(6,"appear",(v)=>{
+    v.style.opacity = 1
+})
+addEventListener("click",()=>{
+    opp_animation()
+    
+})
+
+var flush_internal = setInterval(()=>{
+    document.querySelector("#all-texts").contentWindow.location.reload()
+},1000*25)

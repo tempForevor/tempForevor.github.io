@@ -32,6 +32,7 @@
     <!-- <img class="card-img-top" src="" alt="Title"> -->
     <div class="card-body">
       <h4 class="card-title">Starting</h4>
+      <small class="text-secondary">轻触以跳过动画</small>
       <p class="card-text">
         <pre></pre>
         <code>
@@ -174,9 +175,29 @@
         </div>
         <div class="tab-pane" id="texts" role="tabpanel" aria-labelledby="texts-tab">
           <div id="text-standard-dialogs">
-            登陆 http://tempforevor.pythonanywhere.com/ 以发送留言
-            登陆 http://tempforevor.pythonanywhere.com/all-texts/ 以查询所有留言
+            登陆 http://tempforevor.pythonanywhere.com/ <a href="http://tempforevor.pythonanywhere.com/">transporting</a> 以发送留言
+            <br>
+            登陆 http://tempforevor.pythonanywhere.com/all-texts/ <a href="http://tempforevor.pythonanywhere.com/all-texts/">transporting</a> 以查询所有留言
+            <br>
             登陆 http://tempforevor.pythonanywhere.com/user-all-texts/+用户名字 以查询该名字的所有留言
+            <br>
+            <div class="card" style="background-color:aliceblue; border-color:darkblue;">
+              <div class="card-body">
+                <h4 class="card-title">内嵌网页显示留言板</h4>
+                <p class="card-text">
+                  <iframe id="all-texts" src="http://tempforevor.pythonanywhere.com/all-texts/"></iframe>
+                </p>
+              </div>
+            </div>
+            <div class="card" style="background: 3f3f3f;; border-color:darkblue;">
+              <div class="card-body">
+                <h4 class="card-title">内嵌网页显示留言发送框</h4>
+                <p class="card-text">
+                  <iframe src="http://tempforevor.pythonanywhere.com/"></iframe>
+                </p>
+              </div>
+            </div>
+            <!-- <embed src="http://tempforevor.pythonanywhere.com/all-texts/"> -->
           </div>
         </div>
       </div>
