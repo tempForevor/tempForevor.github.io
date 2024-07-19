@@ -50,7 +50,7 @@ var req
 
 function getTexts(){
     req = new XMLHttpRequest()
-    req.open("GET","http://tempforevor.pythonanywhere.com/all-texts/")
+    req.open("GET","https://tempforevor.pythonanywhere.com/all-texts/")
     function handleEvent(e){
         console.log(`${e.type}: ${e.loaded} bytes transferred\n`);
     }
@@ -60,8 +60,9 @@ function getTexts(){
     req.addEventListener("progress", handleEvent);
     req.addEventListener("error", handleEvent);
     req.addEventListener("abort", handleEvent);
+    console.log("Got text successfully.",req.statusText)
 }
-addEventListener("load",getTexts)
+//addEventListener("load",getTexts)
 
 function setAnimation(max_animation_cnt,class_selecter,action){
     var cnt = 0
