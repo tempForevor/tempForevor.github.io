@@ -51,7 +51,7 @@ function get_local(){
 
 function add_music(type="iframe"){
     if(type=="iframe"){
-        musics.push((new Musics()).set(document.getElementById("music_link_iframe").value,Musics.TYPE_IFRAME))
+        musics.push((new Musics()).set(document.getElementById("music_link_iframe").value,1))
     }
     set_local()
 }
