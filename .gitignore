@@ -2,3 +2,8 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+node_modules/
+pages/jquery-3.7.1.js
+pages/jquery-3.7.1.min.js
+pages/*
+pages/index.htm

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh_cn">
+
+<head>
+  <title>Linked Melody</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+    <script type="text/javascript">
+        //黑猫
+        var hijiki="https://unpkg.com/live2d-widget-model-hijiki@1.0.5/assets/hijiki.model.json";
+        //白猫 
+        var tororo="https://unpkg.com/live2d-widget-model-tororo@1.0.5/assets/tororo.model.json";
+        //狗
+        var wanko="https://unpkg.com/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json";
+        //人物
+        var koharu="https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json";
+        var shizuku="https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json";//默认形象
+        var z16="https://unpkg.com/live2d-widget-model-z16@1.0.5/assets/z16.model.json";
+        var chitose="https://unpkg.com/live2d-widget-model-chitose@1.0.5/assets/chitose.model.json";
+        var haruto="https://unpkg.com/live2d-widget-model-haruto@1.0.5/assets/haruto.model.json";
+        var hibiki="https://unpkg.com/live2d-widget-model-hibiki@1.0.5/assets/hibiki.model.json";
+        var izumi="https://unpkg.com/live2d-widget-model-izumi@1.0.5/assets/izumi.model.json";
+        var miku="https://unpkg.com/live2d-widget-model-miku@1.0.5/assets/miku.model.json";
+        var nico="https://unpkg.com/live2d-widget-model-nico@1.0.5/assets/nico.model.json";
+        var nipsilon="https://unpkg.com/live2d-widget-model-nipsilon@1.0.5/assets/nipsilon.model.json";
+        var nito="https://unpkg.com/live2d-widget-model-nito@1.0.5/assets/nito.model.json";
+        var tsumiki="https://unpkg.com/live2d-widget-model-tsumiki@1.0.5/assets/tsumiki.model.json";
+        var unitychan="https://unpkg.com/live2d-widget-model-unitychan@1.0.5/assets/unitychan.model.json";
+        setTimeout(() => {
+          L2Dwidget.init({
+            "model": {
+              jsonPath:z16,//形象
+              "scale": 0.5
+            },
+            "display": {
+              "position": "right",//展示位置
+              "width": 120,//看板娘宽
+              "height": 225,//看板娘高
+              "hOffset": 0,
+              "vOffset": -20
+            },
+            "mobile": {
+              "show": true,
+              "scale": 0.5
+            },
+            "react": {
+              "opacityDefault": 0.7,
+              "opacityOnHover": 0.2
+            }
+          });  
+        }, 1000)
+        </script>
+    <script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+  </script>
+  <script src="music_player.js"></script>
+</head>
+
+<body class="bg-secondary text-light">
+  <header>
+    <nav class="nav justify-content-start bg-dark text-light ">
+        <h3>Linked Melody</h3>
+      <a class="nav-link" href="#Top">Top</a>
+      <a class="nav-link" href="#">Link</a>
+    </nav>
+    <div id="Top"><br></div>
+  </header>
+  <div class="card border-primary bg-dark">
+    <div class="card-body">
+        <p>
+            <a id="collapse_player" class="btn btn-dark text-link" data-bs-toggle="collapse" href="#player" aria-expanded="false" aria-controls="contentId" onclick="change_collapse('player')">
+                >>
+            </a>
+        </p>
+        <div class="collapse" id="player">
+            <p class="card-text">
+                <div class="mb-3">
+                  <label for="music_link_iframe" class="form-label">Music link(NetEASE IFRAME Id)</label>
+                  <input type="text"
+                    class="form-control" name="music_link_iframe" id="music_link_iframe" placeholder="">
+                  <button class="btn btn-secondary text-link" onclick="add_music()">Add</button>
+                </div>
+            </p>
+        </div>
+    </div>
+  </div>
+  <div class="card border-primary bg-dark">
+    <div class="card-body">
+        <p>
+            <a id="collapse_musics" class="btn btn-dark text-link" data-bs-toggle="collapse" href="#musics" aria-expanded="false" aria-controls="contentId" onclick="change_collapse('musics')">
+                >>
+            </a>
+        </p>
+        <div class="collapse" id="musics">
+            
+        </div>
+    </div>
+  </div>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+</body>
+
+</html>
