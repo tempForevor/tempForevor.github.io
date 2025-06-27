@@ -6,6 +6,10 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="referrer" content="origin-when-cross-origin">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
   <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -92,12 +96,28 @@
         <div class="collapse" id="player">
             <p class="card-text">
                 <div class="mb-3">
-                  <label for="music_link_iframe" class="form-label">Music link(NetEASE IFRAME Id)</label>
+                  <label for="music_link_iframe" class="form-label">Music link(网易云音乐内嵌网页Id)</label>
                   <input type="text"
                     class="form-control" name="music_link_iframe" id="music_link_iframe" placeholder="">
-                  <button class="btn btn-secondary text-link" onclick="add_music()">Add</button>
+                  <button class="btn btn-secondary text-link" onclick="add_music('iframe')">添加</button>
                 </div>
             </p>
+            <p class="card-text">
+                <div class="mb-3">
+                  <label for="music_link_bilibili" class="form-label">Video link(Bilibili视频Id 格式=aid+空格+bv+空格+cid)(aid,bv,cid可以在B站视频分享中的“嵌入代码”链接中翻到)</label>
+                  <input type="text"
+                    class="form-control" name="music_link_bilibili" id="music_link_bilibili" placeholder="">
+                  <button class="btn btn-secondary text-link" onclick="add_music('bilibili')">添加</button>
+                </div>
+            </p>
+            <p class="card-text">
+              <div class="mb-3">
+                <label for="music_link_direct" class="form-label">直链</label>
+                <input type="text"
+                  class="form-control" name="music_link_direct" id="music_link_direct" placeholder="">
+                <button class="btn btn-secondary text-link" onclick="add_music('direct')">添加</button>
+              </div>
+          </p>
         </div>
     </div>
   </div>
@@ -109,7 +129,7 @@
             </a>
         </p>
         <div class="collapse" id="musics">
-            
+            放心，数据会保存在本地。
         </div>
     </div>
   </div>

@@ -1,18 +1,28 @@
 // const { isNumeric } = require("jquery")
 
+var MTypes = {
+    TYPE_LINK : 0,
+    TYPE_IFRAME : 1,
+    DIRECT_LINK : 2,
+    BILIBILI : 3
+}
+
 class Musics{
     constructor(){
-        this.TYPE_LINK = 0
-        this.TYPE_IFRAME = 1
-        this.DIRECT_LINK = 2
         this.link = ""
     }
     set(arglink,argtype){
-        if(argtype == this.TYPE_IFRAME){
-            this.link="<meting-js server='netease' type='song' id='"+arglink+"'></meting-js>"
-        }
-        if(argtype == this.DIRECT_LINK){
-            this.link=arglink
+        switch (argtype) {
+            case MTypes.TYPE_IFRAME:
+                this.link="<meting-js server='netease' type='song' id='"+arglink+"'></meting-js>"
+                break;
+            case MTypes.DIRECT_LINK:
+                this.link=arglink
+                break;
+            case MTypes.BILIBILI:
+                this.link='<iframe class="Bilibili" src="https://player.bilibili.com/player.html?isOutside=true&aid='+arglink[0]+'&bvid='+arglink[1]+'&cid='+arglink[2]+'&p=1&high_quality=1&poster=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>'
+            default:
+                break;
         }
         return this 
     }
@@ -45,13 +55,19 @@ function get_local(){
     }
     let l = musics.length
     for (let index = 0; index < l; index++) {
-        musics.push(new Musics().set(musics.pop().link,2))
+        musics.push(new Musics().set(musics.pop().link,MTypes.DIRECT_LINK))
     }
 }
 
-function add_music(type="iframe"){
-    if(type=="iframe"){
-        musics.push((new Musics()).set(document.getElementById("music_link_iframe").value,1))
+function add_music(type='iframe'){
+    if(type=='iframe'){
+        musics.push((new Musics()).set(document.getElementById("music_link_iframe").value,MTypes.TYPE_IFRAME))
+    }
+    if(type=='bilibili'){
+        musics.push((new Musics()).set(document.getElementById("music_link_bilibili").value.split(" "),MTypes.BILIBILI))
+    }
+    if(type=='direct'){
+        musics.push((new Musics()).set(document.getElementById("music_link_direct").value,MTypes.DIRECT_LINK))
     }
     set_local()
 }
@@ -70,7 +86,17 @@ function load_musics(){
     });    
 }
 
+function post_load_musics(){
+    let ae = document.getElementsByClassName("Bilibili")
+    for (let index = 0; index < ae.length; index++) {
+        const element = array[index];
+        element.contentWindow.player.setLoop(true)
+    }
+    "114745017375877 BV14RKSznE89 30697586867"
+}
+
 addEventListener("load",(ev)=>{
     get_local()
     load_musics()
+    post_load_musics()
 })
