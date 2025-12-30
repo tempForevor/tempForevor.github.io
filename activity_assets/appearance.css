@@ -22,20 +22,20 @@
 }
 @keyframes main-body-fading-waiting {
     0% {
-        margin-top: 7em;
+        margin-top: 2em;
         opacity: 0;
     }
     66% {
-        margin-top: 7em;
+        margin-top: 2em;
         opacity: 0;
     }
     100% {
-        margin-top: 5em;
+        margin-top: 0em;
         opacity: 0.95;
     }
 }
 .main-body{
-    margin-top: 5em;
+    margin-top: 0em;
     opacity: 0.95;
 
     animation-name: main-body-fading-waiting;

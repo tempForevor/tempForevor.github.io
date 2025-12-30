@@ -22,7 +22,7 @@
         <link rel="stylesheet" type="text/css" href="./activity_assets/AaDarkAbyssChinese.css">
         <link rel="stylesheet" type="text/css" href="./activity_assets/YuWeiShuFa.css">
         <link rel="stylesheet" type="text/css" href="./activity_assets/general_node.css">
-        <!-- <link rel="stylesheet" type="text/css" href="./activity_assets/appearance.css"> -->
+        <link rel="stylesheet" type="text/css" href="./activity_assets/appearance.css">
         
         <script>
             var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
@@ -37,6 +37,7 @@
             addEventListener(
                 "load",(ev)=>{
                     Toast("HappyNewYear","元旦快乐")
+                    setTimeout(()=>{document.getElementById("Schedule").scrollIntoView()},3000);
                 }
             )
         </script>
@@ -120,10 +121,10 @@
                                     class="dropdown-menu"
                                     aria-labelledby="dropdownId"
                                 >
-                                    <a class="dropdown-item" href="#Schedule1"
+                                    <a class="dropdown-item" href="#Schedule"
                                         >？然而事实是做完是在2025.12.31 01:42:56此时还没有节目单()</a
                                     >
-                                    <a class="dropdown-item" href="#Schedule2"
+                                    <a class="dropdown-item" href="#Schedule"
                                         >？然而事实是做完是在2025.12.31 01:42:56此时还没有节目单()</a
                                     >
                                 </div>
@@ -148,9 +149,9 @@
         </header>
 
         <main class="bg-info text-dark main-bg"  style="background-image: url(./activity_assets/background1.png); padding-bottom: 5em;">
-            <div style="min-height: 25em;"></div>
+            <div style="min-height: 45em;"></div>
 
-            <div id="main-body" class="main-body card bg-light" style="margin: 5em; padding-bottom: 25em;">
+            <div id="main-body" class="main-body card bg-light" style="margin-left: 5em; margin-right: 5em; padding-bottom: 30em;">
                 <div class="card-body">
                     <h2 class="card-title text-center" style="font-family: 'AaDarkAbyssChinese', sans-serif;">喜迎元旦-高一十四班春节联欢晚会</h2>
                     <p class="card-text text-center">2025.12.31</p>
@@ -165,10 +166,12 @@
                     <div style="position: relative;" data-bs-spy="scroll" data-bs-target="navbar" data-bs-smooth-scroll="true" data-bs-offset=50> 
                         
                         <div class="scrollspy" id="Schedule">
-                            <div class="nav nav-tabs place-holder" role="tablist">
+                            <div class="nav nav-tabs" role="tablist">
+                                <div class="place-holder">
                                 <hr>
                                 <h1>节目</h1>
                                 <div id="Schedule1">？然而事实是做完是在2025.12.31 01:42:56此时还没有节目单()</div>
+                                </div>
                             </div>
                         </div>
 
