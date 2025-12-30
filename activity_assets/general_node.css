@@ -1,0 +1,18 @@
+.place-holder{
+    margin-top: 5em;
+}
+
+nav{
+    opacity: 0.25;
+    width: 1;
+    display: flex;
+}
+nav:hover{
+    opacity: 0.95;
+    display: block;
+}
+
+.nav-tabs{
+    scroll-behavior: smooth;
+    scroll-margin-top: 2em;
+}

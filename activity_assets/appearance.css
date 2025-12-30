@@ -1,0 +1,46 @@
+@keyframes fading {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.95;
+    }
+}
+@keyframes main-bg-fading-waiting {
+    0% {
+        opacity: 0;
+        background-image: url(./background2.png);
+    }
+    50% {
+        opacity: 0.95;
+        background-image: url(./background2.png);
+    }
+    100% {
+        opacity: 0.95;
+        background-image: url(./background1.png);
+    }
+}
+@keyframes main-body-fading-waiting {
+    0% {
+        margin-top: 7em;
+        opacity: 0;
+    }
+    66% {
+        margin-top: 7em;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 5em;
+        opacity: 0.95;
+    }
+}
+.main-body{
+    margin-top: 5em;
+    opacity: 0.95;
+
+    animation-name: main-body-fading-waiting;
+    animation-duration: 3s;
+}
+.main-bg{
+    animation: main-bg-fading-waiting 2s;
+}
