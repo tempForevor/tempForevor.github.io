@@ -110,12 +110,12 @@
         <script>
             // Game Utils
             var tickets = [
-                "38套","奶茶","课上回答不出来可坐下",
-                "38套","奶茶","课上回答不出来可坐下",
-                "找异性唱歌2次",
-                "抱同性转圈",
-                "站在窗台边上大喊元旦快乐",
-                "找班主任说我爱你"
+                "38套*1","奶茶*1","课上回答不出来可坐下*1",
+                "38套*1","奶茶*1","课上回答不出来可坐下*1",
+                "找异性唱歌*2",
+                "抱同性转圈*1",
+                "站在窗台边上大喊元旦快乐*1",
+                "找班主任说我爱你*1"
             ]
 
             var ticket_history = [
@@ -127,19 +127,108 @@
                 0
             ]
 
-            function getNextTicket(){
+            function getNextTicket(try_flag=false){
                 let i = Math.floor(Math.random() * tickets.length)
-                let cnt = 0;
+                let cnt = -1;
                 while(true){
                     i = Math.floor(Math.random() * tickets.length)
                     cnt += 1
                     if(ticket_history[i]==0)break
-                    if(cnt>(tickets.length+2))return "签抽完了..."
+                    let j = i
+                    while(i==j)i = Math.floor(Math.random() * tickets.length)
+                    if(cnt>(tickets.length+2)){
+                        let ssflag=false
+                        ticket_history.forEach(
+                            (value,index)=>{
+                                if(!value){ssflag=true;i=index;}
+                            }
+                        )
+                        if(ssflag)break
+                        if(try_flag)return false
+                        return "签抽完了..."
+                    }
                 }
+                if(try_flag)return true
                 ticket_history[i]=1
                 return tickets[i]
             }
+            
+            function playTicketAnimation(ticket_message){
+                Toast("抽签",ticket_message)
+                document.getElementById("qian-content").innerText=ticket_message
+                document.getElementById("qian").hidden=false
+                document.getElementById("qian").style.animation = "fading 1s"
+            }
 
+            function getTicket(){
+                if(!getNextTicket(true)){
+                    Toast("抽签","签抽完了......")
+                    return
+                }
+                playTicketAnimation(getNextTicket(false))
+            }
+
+        </script>
+
+        <script>
+            // 节目单
+            var schedules = [
+                "Test"
+            ]
+            var now_schedule = 0
+            function initSchedules(){
+                schedules.forEach(
+                    (value)=>{
+                        var nav_node = "<a class=\"dropdown-item\" href=\"#Schedule\">"+value+"</a>"
+                        document.getElementById("schedules-dropdown-menu").innerHTML+=nav_node
+                        var list_node = '<label class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="" />'+value+'</label>'
+                        document.getElementById("schedules-list").innerHTML+=list_node
+                    }
+                )
+            }
+            function selectNextSchedule(){
+                if(now_schedule<0)now_schedule=0
+                if(now_schedule>=schedules.length){
+                    Toast("节目单","已经是最后一个节目了")
+                    return
+                }
+                document.getElementById("now-schedule").innerText = schedules[now_schedule]
+                now_schedule++
+            }
+            addEventListener(
+                "load",initSchedules
+            )
+        </script>
+
+        <script>
+            // // 滚动监听
+            // var scroll_tag = [
+            //     "Top",
+            //     "Schedule",
+            //     "Games",
+            //     "Thanks"
+            // ]
+            // var scroll_pos = 0
+            // addEventListener(
+            //     "load",()=>{
+            //         document.getRootNode().addEventListener(
+            //             "scroll",(ev)=>{
+            //                 if(scroll_pos<=0){
+            //                     scroll_pos=0
+            //                     return
+            //                 }
+            //                 if(scroll_pos>=scroll_tag.length-1){
+            //                     scroll_pos=scroll_tag.length-1
+            //                     return
+            //                 }
+            //                 var scroll_dire = window.scrollY>0?1:-1
+            //                 scroll_pos+=scroll_dire
+            //                 document.getElementById(scroll_tag[scroll_pos]).scrollIntoView()
+            //                 console.log(window.scrollY)
+            //             }
+            //         )
+            //     }
+            // )
         </script>
 
     </head>
@@ -184,14 +273,15 @@
                                 >
                                 <div
                                     class="dropdown-menu"
+                                    id="schedules-dropdown-menu"
                                     aria-labelledby="dropdownId"
                                 >
-                                    <a class="dropdown-item" href="#Schedule"
+                                    <!-- <a class="dropdown-item" href="#Schedule"
                                         >？然而事实是做完是在2025.12.31 01:42:56此时还没有节目单()</a
                                     >
                                     <a class="dropdown-item" href="#Schedule"
                                         >？然而事实是做完是在2025.12.31 01:42:56此时还没有节目单()</a
-                                    >
+                                    > -->
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -207,7 +297,7 @@
                     </div>
                 </div>
              </nav>
-             <div class="toastContainer" id="toastContainer" style="position: fixed; top:0; z-index: 114515;">
+             <div class="toastContainer main-body" id="toastContainer" style="position: fixed; top:0; z-index: 114515;">
 
              </div>
              
@@ -231,11 +321,25 @@
                     <div style="position: relative;" data-bs-spy="scroll" data-bs-target="navbar" data-bs-smooth-scroll="true" data-bs-offset=50> 
                         
                         <div class="scrollspy" id="Schedule">
-                            <div class="nav nav-tabs" role="tablist">
+                            <div class="nav nav-tabs" role="tablist" style="min-width: 75vw;">
                                 <div class="place-holder">
                                 <hr>
                                 <h1>节目</h1>
-                                <div id="Schedule1">？然而事实是做完是在2025.12.31 01:42:56此时还没有节目单()</div>
+                                <div id="schedules-list" class="list-group" style="min-width: 100%;">
+                                    <!-- <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" />
+                                        First checkbox
+                                    </label> -->
+                                </div>
+                                <div>
+                                    <div style="width:80vw;">-</div>
+                                    <h1 id="now-schedule" style="font-size: 5vw; display: block; min-width: 100%;">
+                                        等待开始
+                                    </h1>
+                                </div>
+                                <button class="btn btn-primary" onclick="selectNextSchedule()">下一个节目</button>
+                                <br>
+                                <!-- <div id="ScheduleList">？然而事实是做完是在2025.12.31 01:42:56此时还没有节目单()</div> -->
                                 </div>
                             </div>
                         </div>
@@ -250,7 +354,27 @@
                                         抽签：玩家通过按下下方的“抽签”按钮随机抽签，然后需按照签上内容行动（有奖励也有惩罚）
                                         <div class="place-holder"></div>
                                         <div class="center"> 
-                                            <button class="btn btn-primary" onclick="Toast('抽签',getNextTicket())">抽签</button>
+                                            <button class="btn btn-primary" onclick="getTicket()">抽签
+                                            </button>
+                                            <!-- <div id="qian" style="display:inline; position: fixed; top:0%; left: 0%; width: 100vw; height: 100vh; z-index: 114520; background-color: darkgray;"><img
+                                                src="./activity_assets/qian.png"
+                                                class="img-fluid rounded-top"
+                                                alt=""
+                                                onclick="document.getElementById('qian').hidden=true"
+                                                style="display: flex; left:cal((100%-width)/2);"
+                                            /><h1 id="qian-content" style="font-size: 10vh; height: 75vh; width: 100vh;" class="text-center"></h1></div> -->
+                                            <div id="qian" hidden style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 114520; background-color: darkgray;">
+    <div style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img
+            src="./activity_assets/qian.png"
+            class="img-fluid rounded-top"
+            alt=""
+            onclick="document.getElementById('qian').hidden=true"
+            style="max-width: 80vw; max-height: 60vh; object-fit: contain;"
+        />
+        <h1 id="qian-content" style="font-size: 10vh; margin-top: 2vh; text-align: center;"></h1>
+    </div>
+</div>
                                         </div>
                                     </div>
                                 </div>
@@ -265,7 +389,7 @@
                                     <hr>
                                     <h1>特别鸣谢</h1>
                                     <br>
-                                    <h2>[2025.12.31 1:44:12]请有关人员报下名字要加到鸣谢上（</h2>
+                                    <!-- <h2>[2025.12.31 1:44:12]请有关人员报下名字要加到鸣谢上（</h2> -->
                                 </div>
                             </div>
                         </div>
