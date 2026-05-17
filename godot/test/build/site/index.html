@@ -1,0 +1,114 @@
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\(', '\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+
+    <script src="
+    https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js
+    "></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css
+    " rel="stylesheet">
+
+    <head>
+    <title>How to create your game?</title>
+    <link href="../../assets/style.css
+    " rel="stylesheet">
+    </head>
+<body>
+<div class="body"><div class="Title">
+<h1>如何借助godot来创建自己的游戏/视觉小说/二创</h1>
+<h2>以项目《明日方舟》二创《溟日纺粥》为例<h2>
+</div>
+
+<hr>
+<p>本文将通过项目《溟日纺粥》来简略介绍如何通过godot来创建自己的游戏/视觉小说/二创。</p>
+<h3>目录</h3>
+<blockquote>
+<ul>
+<li><a href="#chapter-1">Chapter 1</a><ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#下载及安装">下载及安装</a></li>
+<li><a href="#开始之前">开始之前</a></li>
+</ul>
+</li>
+<li><a href="#chapter-2">Chapter 2</a><ul>
+<li>[全局基本逻辑实现]</li>
+<li>[实现主界面]</li>
+<li>[实现选人界面及结算界面]</li>
+<li>[实现战斗场景]</li>
+</ul>
+</li>
+<li><a href="">Chapter 3</a><ul>
+<li>[剧情基本逻辑]</li>
+<li>[实现剧情界面]</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="chapter-1">Chapter 1</h2>
+<hr>
+<h3 id="前言">前言</h3>
+<p>本文目的为激发兴趣及提供入门的指导，若想进行进一步的学习，请自行学习相关知识。
+1附：作者本身水平有限，方案实现可能并不好，仅供参考。</p>
+<p>当前进度：</p>
+<ul>
+<li>[] <a href="#chapter-1">Chapter 1</a><ul>
+<li>[x] <a href="#前言">前言</a></li>
+<li>[x] <a href="#下载及安装">下载及安装</a></li>
+<li>[x] <a href="#开始之前">开始之前</a></li>
+</ul>
+</li>
+<li>[] <a href="#chapter-2">Chapter 2</a><ul>
+<li>[] [全局基本逻辑实现]</li>
+<li>[] [实现主界面]</li>
+<li>[] [实现选人界面及结算界面]</li>
+<li>[] [实现战斗场景]</li>
+</ul>
+</li>
+<li>[] <a href="">Chapter 3</a><ul>
+<li>[] [剧情基本逻辑]</li>
+<li>[] [实现剧情界面]</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="下载及安装">下载及安装</h3>
+<p>可至官方网站<a href="https://godotengine.org/zh-cn/">https://godotengine.org/zh-cn/</a>进行下载。</p>
+<p>目前godot存在两个版本，分别使用gdscript和c#作为使用语言（不过貌似c#版也可使用gdscript）。若只使用gdscript或为初学者则推荐使用gdscript版.(如图2-2)</p>
+<p><img alt="2-1" src="../../assets/2/2-1.png" title="2-1">
+<em>图2-1 4.6.2版本主页面</em></p>
+<p><img alt="2-2" src="../../assets/2/2-2.png" title="2-2">
+<em>图2-2 4.6.2windows下载界面</em>
+<em>其中.Net版即为使用c#语言的版本</em></p>
+<p>此处编者采用gdscript版作为示例：</p>
+<p><img alt="2-3" src="../../assets/2/2-3.png" title="2-3">
+<em>图2-3 下载好的压缩包</em></p>
+<p>然后解压到一个文件夹中（建议放在桌面或其他容易找的地方，因为这其实就是godot的应用程序了，之后都是用它打开）
+之后只需打开那个文件夹打开其中的.exe即可
+（也许你注意到还有一个后缀为console的.exe，那其实是godot的命令行版本，godot支持命令行调用，但此处我们用不上）</p>
+<p><img alt="2-4" src="../../assets/2/2-4.png" title="2-4">
+<em>图2-4 解压出来的应用程序</em></p>
+<hr>
+<h3 id="开始之前">开始之前</h3>
+<p>本项目将会在github开源，项目素材来源于明日方舟，从prts.wiki获取，遵守cc by-nc-sa 4.0协议（见页脚）。
+本项目的绝大部分机制来源于明日方舟，从prts.wiki获取，遵守cc by-nc-sa 4.0协议（见页脚）。</p>
+<p>相关机制可至prts.wiki查看，如<a href="https://prts.wiki/w/%E4%BD%9C%E6%88%98%E6%9C%BA%E5%88%B6#%E7%AC%A6%E6%96%87">作战机制 - PRTS - 玩家共同构筑的明日方舟中文Wiki</a>
+和<a href="https://prts.wiki/w/%E6%B8%B8%E6%88%8F%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80">游戏数据基础 - PRTS - 玩家共同构筑的明日方舟中文Wiki</a></p>
+<hr>
+<h2 id="chapter-2">Chapter 2</h2>
+</div>
+</body>
+
+    <footer>
+    <hr>
+    <p>注：本文引用<a href="https://prts.wiki/w/%E9%A6%96%E9%A1%B5">PRTS - 玩家共同构筑的明日方舟中文Wiki(prts.wiki)</a>的相关内容，本文所涉及的公司名称、商标、产品等均为其各自所有者的资产，本文内使用的原游戏图片、动画、音频、文本原文，仅用于更好地表现原游戏资料，其版权属于上海鹰角网络科技有限公司及其关联公司。除非另有声明，本文其他内容采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享授权 即CC BY-NC-SA 4.0协议</a>。</p>
+    </footer>
