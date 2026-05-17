@@ -1,0 +1,21 @@
+{
+    "file_list": {
+        "Example": "../test/resources/example/example.markdown",
+        "SiteIndex": "../test/resources/site/index.markdown"
+    },
+    "result_paths": {
+        "Example": "../test/build/example/example.html",
+        "SiteIndex": "../test/build/site/index.html"
+    },
+    "extensions": [
+        "markdown.extensions.extra"
+    ],
+    "extensions_config": {},
+    "//extensions_config_type": {
+        "//extensions_name": {
+            "//extensions_config_name": "//config_value"
+        }
+    },
+    "addon_html_code": "",
+    "default_code":""
+}
