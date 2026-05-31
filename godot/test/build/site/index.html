@@ -40,8 +40,8 @@
 </ul>
 </li>
 <li><a href="#chapter-2">Chapter 2</a><ul>
-<li>[全局基本逻辑实现]</li>
-<li>[实现主界面]</li>
+<li><a href="#全局基本逻辑实现">全局基本逻辑实现</a></li>
+<li><a href="#实现主界面">实现主界面</a></li>
 <li>[实现选人界面及结算界面]</li>
 <li>[实现战斗场景]</li>
 </ul>
@@ -68,8 +68,8 @@
 </ul>
 </li>
 <li>[] <a href="#chapter-2">Chapter 2</a><ul>
-<li>[] [全局基本逻辑实现]</li>
-<li>[] [实现主界面]</li>
+<li>[] <a href="#全局基本逻辑实现">全局基本逻辑实现</a></li>
+<li>[] <a href="#实现主界面">实现主界面</a></li>
 <li>[] [实现选人界面及结算界面]</li>
 <li>[] [实现战斗场景]</li>
 </ul>
@@ -83,7 +83,7 @@
 <hr>
 <h3 id="下载及安装">下载及安装</h3>
 <p>可至官方网站<a href="https://godotengine.org/zh-cn/">https://godotengine.org/zh-cn/</a>进行下载。</p>
-<p>目前godot存在两个版本，分别使用gdscript和c#作为使用语言（不过貌似c#版也可使用gdscript）。若只使用gdscript或为初学者则推荐使用gdscript版.(如图2-2)</p>
+<p>目前godot存在两个版本，分别使用gdscript和c#作为使用语言（不过貌似c#版也可使用gdscript）。若只使用gdscript或为初学者则推荐使用gdscript版.（如图2-2）</p>
 <p><img alt="2-1" src="../../assets/2/2-1.png" title="2-1">
 <em>图2-1 4.6.2版本主页面</em></p>
 <p><img alt="2-2" src="../../assets/2/2-2.png" title="2-2">
@@ -99,12 +99,39 @@
 <em>图2-4 解压出来的应用程序</em></p>
 <hr>
 <h3 id="开始之前">开始之前</h3>
+<blockquote>
 <p>本项目将会在github开源，项目素材来源于明日方舟，从prts.wiki获取，遵守cc by-nc-sa 4.0协议（见页脚）。
 本项目的绝大部分机制来源于明日方舟，从prts.wiki获取，遵守cc by-nc-sa 4.0协议（见页脚）。</p>
 <p>相关机制可至prts.wiki查看，如<a href="https://prts.wiki/w/%E4%BD%9C%E6%88%98%E6%9C%BA%E5%88%B6#%E7%AC%A6%E6%96%87">作战机制 - PRTS - 玩家共同构筑的明日方舟中文Wiki</a>
-和<a href="https://prts.wiki/w/%E6%B8%B8%E6%88%8F%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80">游戏数据基础 - PRTS - 玩家共同构筑的明日方舟中文Wiki</a></p>
+和<a href="https://prts.wiki/w/%E6%B8%B8%E6%88%8F%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80">游戏数据基础 - PRTS - 玩家共同构筑的明日方舟中文Wiki</a>
+</p>
+</blockquote>
+<p>当你打开godot后，默认语言设置应该是你的系统语言，大部分情况下为中文，如果不是可以点击右上角的Settings/设置更改Language/语言选项</p>
+<p>点击左上角的创建按钮，便可以创建一个项目（如图3-1）（很不幸，由于电脑配置被判定为超小杯，只能使用兼容模式，实际情况下选移动和forward+更好）</p>
+<p><img alt="3-1" src="../../assets/3/3-1.png" title="3-1"> <em>图3-1 密饼，好耶！小刻，desu！</em></p>
+<p>然后你大概就会看到这个画面</p>
+<p><img alt="3-2" src="../../assets/3/3-2.png" title="3-2"> <em>图3-2 好大的字体</em></p>
+<p>之后再次打开godot只需从项目列表里选中即可</p>
+<p><img alt="3-3" src="../../assets/3/3-3.png" title="3-3"> <em>图3-3 被烂尾的项目吓哭</em></p>
 <hr>
 <h2 id="chapter-2">Chapter 2</h2>
+<h3 id="全局基本逻辑实现">全局基本逻辑实现</h3>
+<p>也许你会问：不会代码怎么办，怎么直接开始实现逻辑了。
+问的好，其实我也不知道为啥是这个结构（）</p>
+<p>当然这一节主要是根据wiki上的属性，转换成项目中的代码等等，可以考虑先跳过这一节，等后续章节提到相关机制再回来看即可（也许我会写个链接）</p>
+<p><em>（其实这一节是边做后面边写的）</em></p>
+<p>首先，项目分为几个主场景/Scenes，分别是MainMenu，Operation，（TODO）
+我们可以先在项目中创建好对应的文件夹和场景</p>
+<p><img alt="4-1" src="../../assets/4/4-1.png" title="4-1"> <em>图4-1 创建好的结构1</em></p>
+<hr>
+<h3 id="实现主界面">实现主界面</h3>
+<p>显然，想要一个游戏可以玩，至少得有一个能够使用的ui。</p>
+<blockquote>
+<p>本项目关于ui的设计，大多参考明日方舟自身的设计。</p>
+</blockquote>
+<p>首先，我们便可以注意到明日方舟主界面的ui是一个可以晃动的ui，我们立刻想到使用godot的<a href="https://docs.godotengine.org/zh-cn/4.x/tutorials/rendering/viewports.html"><em>viewport</em></a>节点来进行一个trick，方便我们不用手动计算偏移（虽然会很屎山，但效果好）
+结构大致如图。</p>
+<p><img alt="4-2" src="../../assets/4/4-2.png" title="4-2"> <em>图4-2 后续会微调结构以达到效果，并且会使用代码进行计算角度，好像也不是很方便（</em></p>
 </div>
 </body>
 
